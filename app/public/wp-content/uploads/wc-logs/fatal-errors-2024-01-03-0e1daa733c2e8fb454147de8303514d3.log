@@ -1,0 +1,6 @@
+2024-01-03T17:35:06+00:00 CRITICAL Cannot redeclare is_WRONG_meta_description() (previously declared in C:\Users\Dell\Local Sites\test-api\app\public\wp-content\themes\twentytwentyfour\functions.php:217) in C:\Users\Dell\Local Sites\test-api\app\public\wp-content\themes\twentytwentyfour\functions.php on line 217
+
+2024-01-03T17:39:32+00:00 CRITICAL Cannot redeclare is_WRONG_meta_description() (previously declared in C:\Users\Dell\Local Sites\test-api\app\public\wp-content\themes\twentytwentyfour\functions.php:217) in C:\Users\Dell\Local Sites\test-api\app\public\wp-content\themes\twentytwentyfour\functions.php on line 217
+
+2024-01-03T17:40:46+00:00 CRITICAL Cannot redeclare is_WRONG_meta_description() (previously declared in C:\Users\Dell\Local Sites\test-api\app\public\wp-content\themes\twentytwentyfour\functions.php:217) in C:\Users\Dell\Local Sites\test-api\app\public\wp-content\themes\twentytwentyfour\functions.php on line 217
+

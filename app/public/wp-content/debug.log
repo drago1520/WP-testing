@@ -1,3 +1,6 @@
-[02-Jan-2024 01:18:43 UTC] Your debug message here
-[02-Jan-2024 01:24:12 UTC] Your debug message here
-[02-Jan-2024 01:24:12 UTC] Your debug message here
+[03-Jan-2024 18:33:47 UTC] PHP Deprecated:  strlen(): Passing null to parameter #1 ($string) of type string is deprecated in C:\Users\Dell\Local Sites\test-api\app\public\wp-includes\html-api\class-wp-html-tag-processor.php on line 544
+[03-Jan-2024 18:33:47 UTC] PHP Deprecated:  strlen(): Passing null to parameter #1 ($string) of type string is deprecated in C:\Users\Dell\Local Sites\test-api\app\public\wp-includes\html-api\class-wp-html-tag-processor.php on line 544
+[03-Jan-2024 18:34:03 UTC] PHP Deprecated:  strlen(): Passing null to parameter #1 ($string) of type string is deprecated in C:\Users\Dell\Local Sites\test-api\app\public\wp-includes\html-api\class-wp-html-tag-processor.php on line 544
+[03-Jan-2024 18:34:03 UTC] PHP Deprecated:  strlen(): Passing null to parameter #1 ($string) of type string is deprecated in C:\Users\Dell\Local Sites\test-api\app\public\wp-includes\html-api\class-wp-html-tag-processor.php on line 544
+[03-Jan-2024 18:47:34 UTC] PHP Deprecated:  strlen(): Passing null to parameter #1 ($string) of type string is deprecated in C:\Users\Dell\Local Sites\test-api\app\public\wp-includes\html-api\class-wp-html-tag-processor.php on line 544
+[03-Jan-2024 18:47:34 UTC] PHP Deprecated:  strlen(): Passing null to parameter #1 ($string) of type string is deprecated in C:\Users\Dell\Local Sites\test-api\app\public\wp-includes\html-api\class-wp-html-tag-processor.php on line 544

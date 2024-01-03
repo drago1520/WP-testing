@@ -205,23 +205,93 @@ endif;
 
 add_action( 'init', 'twentytwentyfour_pattern_categories' );
 // Function to update the meta description of new posts
-function set_yoast_meta_description( $data, $postarr ) {
-    // Check if it's a new post
-    if( $data['post_status'] == 'auto-draft' ) {
-        // Define your meta description template
-        // You can include dynamic data based on the $data or $postarr arrays
-        $meta_description = "This is a default meta description for " . $data['post_title'];
+function action_on_publishing_post( $new_status, $old_status, $post ) {
+    if ( $old_status != 'publish' && $new_status == 'publish' ) {
+        // Schedule the custom action to run after 5 seconds
+        wp_schedule_single_event(time() + 5, 'my_custom_delayed_action', array($post));
+		error_log(print_r($post, true));
         
-        // Save the meta description in the post meta
-        // Note: '_yoast_wpseo_metadesc' is the meta key Yoast SEO uses for meta descriptions
-        $postarr['meta_input']['_yoast_wpseo_metadesc'] = $meta_description;
+        //error_log("Ok. The post was published. $new_status $old_status $post->post_title");
     }
-	error_log('Your debug message here');
-    // Return the modified post data
-    return $data;
+	//Add %%meta_description%% code here
+}
+function my_custom_delayed_action($post) {
+	function is_WRONG_meta_description($meta_descr){
+		error_log(print_r($meta_descr, true));
+		$meta_descr_length = strlen($meta_descr);
+		if($meta_descr_length > 156 || $meta_descr_length < 120) {
+			return true;
+		}elseif($meta_descr_length >= 120 && $meta_descr_length <= 156) {
+			return false;
+		}else{
+			error_log("Something is wrong with meta description.". __FILE__ . " on line " . __LINE__);
+			return true;
+		}
+	}
+    
+
+
+	$all_meta = get_post_meta($post->ID, '', false);
+	$current_meta_description = $all_meta['_yoast_wpseo_metadesc'][0];
+	//error_log( print_r($current_meta_description, TRUE) . __FILE__ . " on line " . __LINE__);
+	if (true) {
+		$new_meta_description = "New meta description for: " . $post->post_title;
+		$result = update_post_meta($post->ID, '_yoast_wpseo_metadesc', $new_meta_description);
+		if ($result === false) {
+		error_log('Failed to update the meta description.');
+		//error_log( print_r($result, TRUE) );
+		} elseif ($result === true) {
+		error_log('Meta description updated successfully.');
+		} else {
+		error_log('Meta description created with meta ID: ' . $result);
+		}
+
+	}
+	$check_meta_descr = get_post_meta($post->ID, '_yoast_wpseo_metadesc', false);
+	//error_log( print_r($check_meta_descr, TRUE) . __FILE__ . " on line " . __LINE__);
 }
 
 
-// Add the filter to wp_insert_post_data hook
-add_filter( 'wp_insert_post_data', 'set_yoast_meta_description', 99, 2 );
+add_action( 'transition_post_status', 'action_on_publishing_post', 10, 3);
+add_action('my_custom_delayed_action', 'my_custom_delayed_action');
+//Обяснение - 1. hook 'transition_post_status' и пуска action_on_publishing_post. Проблем: YoastSEO добавя meta_descr няколко сек. СЛЕД ПУБЛИКУВАНЕ. 2. Забавям функцията за модификация с wp_schedule_single_event() с 5 сек. 3. Чета мета описанието. Ако е ръчно добавено НЕ го пипам. Ако НЕ е ръчно, добавям функция. 4. Променям го с update_post_meta().
+//* Мога да избера вида на POST от $post->post_type == "product"
 
+//Проблем: Пуснали са продукт/ статия etc., изтрили са формулата и сега искат пак да я въведат.
+//#Решение: if (meta descr съдържа %%meta_descr%%) {activate action_on_publishing_post} ; CTRL+F -> (Add %%meta_description%% code here)
+
+
+
+
+
+/*
+Plugin Name: Selective Error Logging
+Description: Limit WP logging to a specific file.
+*/
+
+// // Custom error handler
+// function selective_error_logging($errno, $errstr, $errfile, $errline) {
+//     $target_file = 'C:/Users/Dell/Local Sites/test-api/app/public/wp-content/themes/twentytwentyfour/functions.php';
+    
+//     // Check if the error originates from the target file
+//     if (realpath($errfile) === realpath($target_file)) {
+//         // Format the error string
+//         $error_string = "[Selective Logging] Error in $errfile on line $errline: $errstr\n";
+        
+//         // Log the error to debug.log
+//         error_log($error_string);
+//     }
+
+//     /* Don't execute PHP internal error handler */
+//     return true;
+// }
+
+// // Set the error handler
+// set_error_handler('selective_error_logging');
+
+// // Optional: Restore the previous error handler when the theme changes or the plugin is deactivated
+// function restore_default_error_logging() {
+//     restore_error_handler();
+// }
+// add_action('switch_theme', 'restore_default_error_logging');
+// register_deactivation_hook(__FILE__, 'restore_default_error_logging');
