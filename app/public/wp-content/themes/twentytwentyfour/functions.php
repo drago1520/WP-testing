@@ -269,29 +269,29 @@ Plugin Name: Selective Error Logging
 Description: Limit WP logging to a specific file.
 */
 
-// // Custom error handler
-// function selective_error_logging($errno, $errstr, $errfile, $errline) {
-//     $target_file = 'C:/Users/Dell/Local Sites/test-api/app/public/wp-content/themes/twentytwentyfour/functions.php';
+// Custom error handler
+function selective_error_logging($errno, $errstr, $errfile, $errline) {
+    $target_file = 'C:/Users/Dell/Local Sites/test-api/app/public/wp-content/themes/twentytwentyfour/functions.php';
     
-//     // Check if the error originates from the target file
-//     if (realpath($errfile) === realpath($target_file)) {
-//         // Format the error string
-//         $error_string = "[Selective Logging] Error in $errfile on line $errline: $errstr\n";
+    // Check if the error originates from the target file
+    if (realpath($errfile) === realpath($target_file)) {
+        // Format the error string
+        $error_string = "[Selective Logging] Error in $errfile on line $errline: $errstr\n";
         
-//         // Log the error to debug.log
-//         error_log($error_string);
-//     }
+        // Log the error to debug.log
+        error_log($error_string);
+    }
 
-//     /* Don't execute PHP internal error handler */
-//     return true;
-// }
+    /* Don't execute PHP internal error handler */
+    return true;
+}
 
-// // Set the error handler
-// set_error_handler('selective_error_logging');
+// Set the error handler
+set_error_handler('selective_error_logging');
 
-// // Optional: Restore the previous error handler when the theme changes or the plugin is deactivated
-// function restore_default_error_logging() {
-//     restore_error_handler();
-// }
-// add_action('switch_theme', 'restore_default_error_logging');
-// register_deactivation_hook(__FILE__, 'restore_default_error_logging');
+// Optional: Restore the previous error handler when the theme changes or the plugin is deactivated
+function restore_default_error_logging() {
+    restore_error_handler();
+}
+add_action('switch_theme', 'restore_default_error_logging');
+register_deactivation_hook(__FILE__, 'restore_default_error_logging');
