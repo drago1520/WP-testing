@@ -1,0 +1,1 @@
+This is a wordpress repo for making and fixing  bugs, i.e. learning wordpress. My client needs bulk SEO services and my skills were not sufficient. 
