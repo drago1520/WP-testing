@@ -1,6 +1,209 @@
-[03-Jan-2024 18:33:47 UTC] PHP Deprecated:  strlen(): Passing null to parameter #1 ($string) of type string is deprecated in C:\Users\Dell\Local Sites\test-api\app\public\wp-includes\html-api\class-wp-html-tag-processor.php on line 544
-[03-Jan-2024 18:33:47 UTC] PHP Deprecated:  strlen(): Passing null to parameter #1 ($string) of type string is deprecated in C:\Users\Dell\Local Sites\test-api\app\public\wp-includes\html-api\class-wp-html-tag-processor.php on line 544
-[03-Jan-2024 18:34:03 UTC] PHP Deprecated:  strlen(): Passing null to parameter #1 ($string) of type string is deprecated in C:\Users\Dell\Local Sites\test-api\app\public\wp-includes\html-api\class-wp-html-tag-processor.php on line 544
-[03-Jan-2024 18:34:03 UTC] PHP Deprecated:  strlen(): Passing null to parameter #1 ($string) of type string is deprecated in C:\Users\Dell\Local Sites\test-api\app\public\wp-includes\html-api\class-wp-html-tag-processor.php on line 544
-[03-Jan-2024 18:47:34 UTC] PHP Deprecated:  strlen(): Passing null to parameter #1 ($string) of type string is deprecated in C:\Users\Dell\Local Sites\test-api\app\public\wp-includes\html-api\class-wp-html-tag-processor.php on line 544
-[03-Jan-2024 18:47:34 UTC] PHP Deprecated:  strlen(): Passing null to parameter #1 ($string) of type string is deprecated in C:\Users\Dell\Local Sites\test-api\app\public\wp-includes\html-api\class-wp-html-tag-processor.php on line 544
+[16-Jan-2024 17:07:28 UTC] WP_Post Object
+(
+    [ID] => 152
+    [post_author] => 1
+    [post_date] => 2024-01-16 17:07:28
+    [post_date_gmt] => 2024-01-16 17:07:28
+    [post_content] => 
+    [post_title] => fewfwefwef
+    [post_excerpt] => 
+    [post_status] => publish
+    [comment_status] => closed
+    [ping_status] => closed
+    [post_password] => 
+    [post_name] => fewfwefwef
+    [to_ping] => 
+    [pinged] => 
+    [post_modified] => 2024-01-16 17:07:28
+    [post_modified_gmt] => 2024-01-16 17:07:28
+    [post_content_filtered] => 
+    [post_parent] => 0
+    [guid] => http://localhost/?page_id=152
+    [menu_order] => 0
+    [post_type] => page
+    [post_mime_type] => 
+    [comment_count] => 0
+    [filter] => raw
+)
+
+[16-Jan-2024 17:07:51 UTC] [Selective Logging] Error in C:\Users\Dell\Local Sites\test-api\app\public\wp-content\themes\twentytwentyfour\functions.php on line 235: Undefined array key "_yoast_wpseo_metadesc"
+
+[16-Jan-2024 17:07:51 UTC] [Selective Logging] Error in C:\Users\Dell\Local Sites\test-api\app\public\wp-content\themes\twentytwentyfour\functions.php on line 235: Trying to access array offset on null
+
+[16-Jan-2024 17:07:51 UTC] Meta description created with meta ID: 660
+[17-Jan-2024 19:14:35 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\Users\Dell\Local Sites\test-api\app\public\wp-includes\class-wpdb.php on line 1987
+[17-Jan-2024 19:35:49 UTC] WP_Post Object
+(
+    [ID] => 154
+    [post_author] => 1
+    [post_date] => 2024-01-17 19:35:49
+    [post_date_gmt] => 2024-01-17 19:35:49
+    [post_content] => <!-- wp:paragraph -->
+<p>GFWRGERGE</p>
+<!-- /wp:paragraph -->
+    [post_title] => fwefE
+    [post_excerpt] => 
+    [post_status] => publish
+    [comment_status] => open
+    [ping_status] => open
+    [post_password] => 
+    [post_name] => fwefe
+    [to_ping] => 
+    [pinged] => 
+    [post_modified] => 2024-01-17 19:35:49
+    [post_modified_gmt] => 2024-01-17 19:35:49
+    [post_content_filtered] => 
+    [post_parent] => 0
+    [guid] => http://localhost/?p=154
+    [menu_order] => 0
+    [post_type] => post
+    [post_mime_type] => 
+    [comment_count] => 0
+    [filter] => raw
+)
+
+[17-Jan-2024 19:36:15 UTC] [Selective Logging] Error in C:\Users\Dell\Local Sites\test-api\app\public\wp-content\themes\twentytwentyfour\functions.php on line 237: Undefined array key "_yoast_wpseo_metadesc"
+
+[17-Jan-2024 19:36:15 UTC] [Selective Logging] Error in C:\Users\Dell\Local Sites\test-api\app\public\wp-content\themes\twentytwentyfour\functions.php on line 237: Trying to access array offset on null
+
+[17-Jan-2024 19:38:35 UTC] WP_Post Object
+(
+    [ID] => 156
+    [post_author] => 1
+    [post_date] => 2024-01-17 19:38:35
+    [post_date_gmt] => 2024-01-17 19:38:35
+    [post_content] => <!-- wp:paragraph -->
+<p>efsdfsw</p>
+<!-- /wp:paragraph -->
+    [post_title] => fefwef
+    [post_excerpt] => 
+    [post_status] => publish
+    [comment_status] => open
+    [ping_status] => open
+    [post_password] => 
+    [post_name] => fefwef
+    [to_ping] => 
+    [pinged] => 
+    [post_modified] => 2024-01-17 19:38:35
+    [post_modified_gmt] => 2024-01-17 19:38:35
+    [post_content_filtered] => 
+    [post_parent] => 0
+    [guid] => http://localhost/?p=156
+    [menu_order] => 0
+    [post_type] => post
+    [post_mime_type] => 
+    [comment_count] => 0
+    [filter] => raw
+)
+
+[17-Jan-2024 19:39:29 UTC] [Selective Logging] Error in C:\Users\Dell\Local Sites\test-api\app\public\wp-content\themes\twentytwentyfour\functions.php on line 237: Undefined array key "_yoast_wpseo_metadesc"
+
+[17-Jan-2024 19:39:29 UTC] [Selective Logging] Error in C:\Users\Dell\Local Sites\test-api\app\public\wp-content\themes\twentytwentyfour\functions.php on line 237: Trying to access array offset on null
+
+[17-Jan-2024 19:55:32 UTC] WP_Post Object
+(
+    [ID] => 158
+    [post_author] => 1
+    [post_date] => 2024-01-17 19:55:32
+    [post_date_gmt] => 2024-01-17 19:55:32
+    [post_content] => <!-- wp:paragraph -->
+<p>SFSDFREda</p>
+<!-- /wp:paragraph -->
+    [post_title] => defeF
+    [post_excerpt] => 
+    [post_status] => publish
+    [comment_status] => open
+    [ping_status] => open
+    [post_password] => 
+    [post_name] => defef
+    [to_ping] => 
+    [pinged] => 
+    [post_modified] => 2024-01-17 19:55:32
+    [post_modified_gmt] => 2024-01-17 19:55:32
+    [post_content_filtered] => 
+    [post_parent] => 0
+    [guid] => http://localhost/?p=158
+    [menu_order] => 0
+    [post_type] => post
+    [post_mime_type] => 
+    [comment_count] => 0
+    [filter] => raw
+)
+
+[17-Jan-2024 19:55:41 UTC] [Selective Logging] Error in C:\Users\Dell\Local Sites\test-api\app\public\wp-content\themes\twentytwentyfour\functions.php on line 237: Undefined array key "_yoast_wpseo_metadesc"
+
+[17-Jan-2024 19:55:41 UTC] [Selective Logging] Error in C:\Users\Dell\Local Sites\test-api\app\public\wp-content\themes\twentytwentyfour\functions.php on line 237: Trying to access array offset on null
+
+[17-Jan-2024 19:55:41 UTC] No result returned. Meta description created with Post ID:158
+[17-Jan-2024 19:57:10 UTC] WP_Post Object
+(
+    [ID] => 160
+    [post_author] => 1
+    [post_date] => 2024-01-17 19:57:10
+    [post_date_gmt] => 2024-01-17 19:57:10
+    [post_content] => <!-- wp:paragraph -->
+<p>frefwe</p>
+<!-- /wp:paragraph -->
+    [post_title] => fewfw
+    [post_excerpt] => 
+    [post_status] => publish
+    [comment_status] => open
+    [ping_status] => open
+    [post_password] => 
+    [post_name] => fewfw
+    [to_ping] => 
+    [pinged] => 
+    [post_modified] => 2024-01-17 19:57:10
+    [post_modified_gmt] => 2024-01-17 19:57:10
+    [post_content_filtered] => 
+    [post_parent] => 0
+    [guid] => http://localhost/?p=160
+    [menu_order] => 0
+    [post_type] => post
+    [post_mime_type] => 
+    [comment_count] => 0
+    [filter] => raw
+)
+
+[17-Jan-2024 19:57:17 UTC] [Selective Logging] Error in C:\Users\Dell\Local Sites\test-api\app\public\wp-content\themes\twentytwentyfour\functions.php on line 237: Undefined array key "_yoast_wpseo_metadesc"
+
+[17-Jan-2024 19:57:17 UTC] [Selective Logging] Error in C:\Users\Dell\Local Sites\test-api\app\public\wp-content\themes\twentytwentyfour\functions.php on line 237: Trying to access array offset on null
+
+[17-Jan-2024 19:57:17 UTC] 690
+[17-Jan-2024 19:57:17 UTC] No result returned. Meta description created with Post ID:160
+[17-Jan-2024 19:58:16 UTC] WP_Post Object
+(
+    [ID] => 162
+    [post_author] => 1
+    [post_date] => 2024-01-17 19:58:16
+    [post_date_gmt] => 2024-01-17 19:58:16
+    [post_content] => <!-- wp:paragraph -->
+<p>dadqwefqs</p>
+<!-- /wp:paragraph -->
+    [post_title] => dadq
+    [post_excerpt] => 
+    [post_status] => publish
+    [comment_status] => open
+    [ping_status] => open
+    [post_password] => 
+    [post_name] => dadq-2
+    [to_ping] => 
+    [pinged] => 
+    [post_modified] => 2024-01-17 19:58:16
+    [post_modified_gmt] => 2024-01-17 19:58:16
+    [post_content_filtered] => 
+    [post_parent] => 0
+    [guid] => http://localhost/?p=162
+    [menu_order] => 0
+    [post_type] => post
+    [post_mime_type] => 
+    [comment_count] => 0
+    [filter] => raw
+)
+
+[17-Jan-2024 19:58:18 UTC] [Selective Logging] Error in C:\Users\Dell\Local Sites\test-api\app\public\wp-content\themes\twentytwentyfour\functions.php on line 237: Undefined array key "_yoast_wpseo_metadesc"
+
+[17-Jan-2024 19:58:18 UTC] [Selective Logging] Error in C:\Users\Dell\Local Sites\test-api\app\public\wp-content\themes\twentytwentyfour\functions.php on line 237: Trying to access array offset on null
+
+[17-Jan-2024 19:58:18 UTC] 698
+[17-Jan-2024 19:58:18 UTC] No result returned. Meta description created with Post ID:162

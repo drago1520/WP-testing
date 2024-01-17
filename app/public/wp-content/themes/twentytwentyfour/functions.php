@@ -208,7 +208,7 @@ add_action( 'init', 'twentytwentyfour_pattern_categories' );
 function action_on_publishing_post( $new_status, $old_status, $post ) {
     if ( $old_status != 'publish' && $new_status == 'publish' ) {
         // Schedule the custom action to run after 5 seconds
-        wp_schedule_single_event(time() + 5, 'my_custom_delayed_action', array($post));
+        wp_schedule_single_event(time(), 'my_custom_delayed_action', array($post));
 		error_log(print_r($post, true));
         
         //error_log("Ok. The post was published. $new_status $old_status $post->post_title");
@@ -232,18 +232,24 @@ function my_custom_delayed_action($post) {
 
 
 	$all_meta = get_post_meta($post->ID, '', false);
-	$current_meta_description = $all_meta['_yoast_wpseo_metadesc'][0];
+	//$current_meta_description = $all_meta['_yoast_wpseo_metadesc'][0];
+	try{
+		$current_meta_description = $all_meta['_yoast_wpseo_metadesc'][0];
+	}catch(Exception $yeah){
+		$current_meta_description = false;
+	}
 	//error_log( print_r($current_meta_description, TRUE) . __FILE__ . " on line " . __LINE__);
-	if (true) {
+	if (!$current_meta_description) {
 		$new_meta_description = "New meta description for: " . $post->post_title;
 		$result = update_post_meta($post->ID, '_yoast_wpseo_metadesc', $new_meta_description);
+		error_log($result);
 		if ($result === false) {
-		error_log('Failed to update the meta description.');
+		error_log('Failed to update the meta description. $return is false, see docs. Post ID:'. $post->ID);
 		//error_log( print_r($result, TRUE) );
 		} elseif ($result === true) {
-		error_log('Meta description updated successfully.');
+		error_log('Meta description updated successfully. Post ID'. $post->ID);
 		} else {
-		error_log('Meta description created with meta ID: ' . $result);
+		error_log('New meta ID key created. Meta description created with Post ID:'. $post->ID );
 		}
 
 	}
@@ -255,6 +261,7 @@ function my_custom_delayed_action($post) {
 add_action( 'transition_post_status', 'action_on_publishing_post', 10, 3);
 add_action('my_custom_delayed_action', 'my_custom_delayed_action');
 //Обяснение - 1. hook 'transition_post_status' и пуска action_on_publishing_post. Проблем: YoastSEO добавя meta_descr няколко сек. СЛЕД ПУБЛИКУВАНЕ. 2. Забавям функцията за модификация с wp_schedule_single_event() с 5 сек. 3. Чета мета описанието. Ако е ръчно добавено НЕ го пипам. Ако НЕ е ръчно, добавям функция. 4. Променям го с update_post_meta().
+//!Добавя се само след отваряне на линка!!!
 //* Мога да избера вида на POST от $post->post_type == "product"
 
 //Проблем: Пуснали са продукт/ статия etc., изтрили са формулата и сега искат пак да я въведат.
