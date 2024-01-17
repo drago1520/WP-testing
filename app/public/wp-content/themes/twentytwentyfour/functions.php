@@ -202,7 +202,7 @@ if ( ! function_exists( 'twentytwentyfour_pattern_categories' ) ) :
 		);
 	}
 endif;
-
+//Post->ID == Product->ID woocommerce
 add_action( 'init', 'twentytwentyfour_pattern_categories' );
 // Function to update the meta description of new posts
 function action_on_publishing_post( $new_status, $old_status, $post ) {
@@ -210,12 +210,17 @@ function action_on_publishing_post( $new_status, $old_status, $post ) {
         // Schedule the custom action to run after 5 seconds
         wp_schedule_single_event(time(), 'my_custom_delayed_action', array($post));
 		error_log(print_r($post, true));
+		
         
         //error_log("Ok. The post was published. $new_status $old_status $post->post_title");
     }
 	//Add %%meta_description%% code here
 }
 function my_custom_delayed_action($post) {
+		$product_id = $post->ID;
+		$product = wc_get_product($product_id);
+		$price = $product->get_price();
+		error_log(print_r($price, true));
 	function is_WRONG_meta_description($meta_descr){
 		error_log(print_r($meta_descr, true));
 		$meta_descr_length = strlen($meta_descr);
@@ -233,11 +238,11 @@ function my_custom_delayed_action($post) {
 
 	$all_meta = get_post_meta($post->ID, '', false);
 	//$current_meta_description = $all_meta['_yoast_wpseo_metadesc'][0];
-	try{
+	if (isset($all_meta['_yoast_wpseo_metadesc'])) {
 		$current_meta_description = $all_meta['_yoast_wpseo_metadesc'][0];
-	}catch(Exception $yeah){
+	} else {
 		$current_meta_description = false;
-	}
+	}	
 	//error_log( print_r($current_meta_description, TRUE) . __FILE__ . " on line " . __LINE__);
 	if (!$current_meta_description) {
 		$new_meta_description = "New meta description for: " . $post->post_title;
@@ -251,7 +256,8 @@ function my_custom_delayed_action($post) {
 		} else {
 		error_log('New meta ID key created. Meta description created with Post ID:'. $post->ID );
 		}
-
+	}else{
+		error_log('Meta description already exists. Post ID'. $post->ID);
 	}
 	$check_meta_descr = get_post_meta($post->ID, '_yoast_wpseo_metadesc', false);
 	//error_log( print_r($check_meta_descr, TRUE) . __FILE__ . " on line " . __LINE__);
