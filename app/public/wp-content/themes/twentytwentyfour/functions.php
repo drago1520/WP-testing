@@ -206,7 +206,7 @@ endif;
 add_action( 'init', 'twentytwentyfour_pattern_categories' );
 // Function to update the meta description of new posts
 function action_on_publishing_post( $new_status, $old_status, $post ) {
-    if ( $old_status != 'publish' && $new_status == 'publish' ) {
+    if ( $old_status != 'publish' && $new_status == 'publish' && $post->post_type == 'product' ) {	
         // Schedule the custom action to run after 5 seconds
         wp_schedule_single_event(time(), 'my_custom_delayed_action', array($post));
 		error_log(print_r($post, true));
@@ -289,7 +289,7 @@ function selective_error_logging($errno, $errstr, $errfile, $errline) {
     // Check if the error originates from the target file
     if (realpath($errfile) === realpath($target_file)) {
         // Format the error string
-        $error_string = "[Selective Logging] Error in $errfile on line $errline: $errstr\n";
+        $error_string = "$errstr on line $errline in $errfile\n";
         
         // Log the error to debug.log
         error_log($error_string);
