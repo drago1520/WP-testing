@@ -259,7 +259,7 @@ function my_custom_delayed_action($post) {
 	}	
 	//error_log( print_r($current_meta_description, TRUE) . __FILE__ . " on line " . __LINE__);
 	if (!$current_meta_description) {
-		$product_name_length = strlen($post->post_title);
+		$product_name_length = mb_strlen($post->post_title);
 		//$new_meta_description = "New meta description for: " . $post->post_title;
 		if($product_name_length <= 53 && $product_name_length >= 15){
 			$formula = "%%title%% в {онлайн магазин| уеб магазина на|дигитален магазин|е-магазина на} %%sitename%% {Поръчайте със 100% дискретна експресна доставка|Купете с напълно конфиденциална бърза доставка|Заявете днес с изцяло дискретна бърза доставка}. {Границата е само въображението|Няма граници в избора при нас|Не може дори да си представите}! {❤️|💖|❣️} %%page%%";
