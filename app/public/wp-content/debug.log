@@ -90,3 +90,10 @@
 [28-Jan-2024 15:49:52 UTC] Post ID: 97 and count 1
 [28-Jan-2024 15:49:52 UTC] Post ID: 95 and count 1
 [24-Feb-2024 19:40:43 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\Users\Dell\Local Sites\test-api\app\public\wp-includes\class-wpdb.php on line 1987
+[24-Feb-2024 19:49:08 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\Users\Dell\Local Sites\test-api\app\public\wp-includes\class-wpdb.php on line 1987
+[24-Feb-2024 19:53:38 UTC] PHP Deprecated:  Creation of dynamic property WF_Licensing::$plugin_page is deprecated in C:\Users\Dell\Local Sites\test-api\app\public\wp-content\plugins\wp-reset\wp-reset-licensing.php on line 40
+[24-Feb-2024 19:53:45 UTC] PHP Deprecated:  Creation of dynamic property WF_Licensing::$plugin_page is deprecated in C:\Users\Dell\Local Sites\test-api\app\public\wp-content\plugins\wp-reset\wp-reset-licensing.php on line 40
+[24-Feb-2024 19:53:50 UTC] PHP Deprecated:  Creation of dynamic property WF_Licensing::$plugin_page is deprecated in C:\Users\Dell\Local Sites\test-api\app\public\wp-content\plugins\wp-reset\wp-reset-licensing.php on line 40
+[24-Feb-2024 19:54:38 UTC] PHP Deprecated:  Creation of dynamic property WF_Licensing::$plugin_page is deprecated in C:\Users\Dell\Local Sites\test-api\app\public\wp-content\plugins\wp-reset\wp-reset-licensing.php on line 40
+[24-Feb-2024 19:54:38 UTC] PHP Deprecated:  Creation of dynamic property WF_Licensing::$plugin_page is deprecated in C:\Users\Dell\Local Sites\test-api\app\public\wp-content\plugins\wp-reset\wp-reset-licensing.php on line 40
+[24-Feb-2024 19:56:27 UTC] Cron reschedule event error for hook: action_scheduler_run_queue, Error code: invalid_schedule, Error message: Event schedule does not exist., Data: {"schedule":"every_minute","args":["WP Cron"],"interval":60}

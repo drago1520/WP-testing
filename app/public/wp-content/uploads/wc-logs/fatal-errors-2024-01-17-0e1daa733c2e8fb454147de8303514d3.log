@@ -1,9 +1,0 @@
-2024-01-17T20:36:57+00:00 CRITICAL Uncaught Error: Call to undefined function printr_r() in C:\Users\Dell\Local Sites\test-api\app\public\wp-content\themes\twentytwentyfour\functions.php:223
-Stack trace:
-#0 C:\Users\Dell\Local Sites\test-api\app\public\wp-includes\class-wp-hook.php(324): my_custom_delayed_action(Object(WP_Post))
-#1 C:\Users\Dell\Local Sites\test-api\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
-#2 C:\Users\Dell\Local Sites\test-api\app\public\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
-#3 C:\Users\Dell\Local Sites\test-api\app\public\wp-cron.php(191): do_action_ref_array('my_custom_delay...', Array)
-#4 {main}
-  thrown in C:\Users\Dell\Local Sites\test-api\app\public\wp-content\themes\twentytwentyfour\functions.php on line 223
-
