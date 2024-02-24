@@ -205,43 +205,43 @@ endif;
 //Post->ID == Product->ID woocommerce
 add_action( 'init', 'twentytwentyfour_pattern_categories' );
 // Function to update the meta description of new posts
-function action_on_publishing_post( $new_status, $old_status, $post ) {
-    if ( $old_status != 'publish' && $new_status == 'publish' && $post->post_type == 'product' ) {	
-        // Schedule the custom action to run after 5 seconds
-        wp_schedule_single_event(time(), 'my_custom_delayed_action', array($post));
-		error_log(print_r($post, true));
+// function action_on_publishing_post( $new_status, $old_status, $post ) {
+//     if ( $old_status != 'publish' && $new_status == 'publish' && $post->post_type == 'product' ) {	
+//         // Schedule the custom action to run after 5 seconds
+//         wp_schedule_single_event(time(), 'my_custom_delayed_action', array($post));
+// 		error_log(print_r($post, true));
 		
         
-        //error_log("Ok. The post was published. $new_status $old_status $post->post_title");
-    }
-	//Add %%meta_description%% code here
-}
-function my_custom_delayed_action($post) {
-		$product_id = $post->ID;
-		$product = wc_get_product($product_id);
-		//!$price = $product->get_price(); returns active price
-		$product_name = $post->post_title;
-	function is_WRONG_meta_description($meta_descr){
-		$meta_descr_length = strlen($meta_descr);
-		if($meta_descr_length > 156 || $meta_descr_length < 120) {
-			return true;
-		}elseif($meta_descr_length >= 120 && $meta_descr_length <= 156) {
-			return false;
-		}else{
-			error_log("Something is wrong with meta description. Too short or too long". __FILE__ . " on line " . __LINE__);
-			return true;
-		}
-	}
-	function spintax($text) {
-		$pattern = '/{([^{}]*)}/';
+//         //error_log("Ok. The post was published. $new_status $old_status $post->post_title");
+//     }
+// 	//Add %%meta_description%% code here
+// }
+// function my_custom_delayed_action($post) {
+// 		$product_id = $post->ID;
+// 		$product = wc_get_product($product_id);
+// 		//!$price = $product->get_price(); returns active price
+// 		$product_name = $post->post_title;
+// 	function is_WRONG_meta_description($meta_descr){
+// 		$meta_descr_length = strlen($meta_descr);
+// 		if($meta_descr_length > 156 || $meta_descr_length < 120) {
+// 			return true;
+// 		}elseif($meta_descr_length >= 120 && $meta_descr_length <= 156) {
+// 			return false;
+// 		}else{
+// 			error_log("Something is wrong with meta description. Too short or too long". __FILE__ . " on line " . __LINE__);
+// 			return true;
+// 		}
+// 	}
+// 	function spintax($text) {
+// 		$pattern = '/{([^{}]*)}/';
 
-		while (preg_match($pattern, $text, $match)) {
-			$choices = explode('|', $match[1]);
-			$text = str_replace($match[0], $choices[array_rand($choices)], $text);
-		}
+// 		while (preg_match($pattern, $text, $match)) {
+// 			$choices = explode('|', $match[1]);
+// 			$text = str_replace($match[0], $choices[array_rand($choices)], $text);
+// 		}
 
-		return $text;
-	}
+// 		return $text;
+// 	}
 
 
 
@@ -250,49 +250,48 @@ function my_custom_delayed_action($post) {
 
 
 
-	$all_meta = get_post_meta($post->ID, '', false);
-	//$current_meta_description = $all_meta['_yoast_wpseo_metadesc'][0];
-	if (isset($all_meta['_yoast_wpseo_metadesc'])) {
-		$current_meta_description = $all_meta['_yoast_wpseo_metadesc'][0];
-	} else {
-		$current_meta_description = false;
-	}	
-	//error_log( print_r($current_meta_description, TRUE) . __FILE__ . " on line " . __LINE__);
-	if (!$current_meta_description) {
-		$product_name_length = mb_strlen($post->post_title);
-		//$new_meta_description = "New meta description for: " . $post->post_title;
-		if($product_name_length <= 53 && $product_name_length >= 15){
-			$formula = "%%title%% в {онлайн магазин| уеб магазина на|дигитален магазин|е-магазина на} %%sitename%% {Поръчайте със 100% дискретна експресна доставка|Купете с напълно конфиденциална бърза доставка|Заявете днес с изцяло дискретна бърза доставка}. {Границата е само въображението|Няма граници в избора при нас|Не може дори да си представите}! {❤️|💖|❣️} %%page%%";
-		}elseif($product_name_length <= 80 && $product_name_length >= 54){
-			$formula = "%%title%% в {онлайн магазин| уеб магазина на|дигитален магазин|е-магазина на} %%sitename%% {Поръчайте лесно с 100% дискретна експресна доставка|Купете сега с напълно конфиденциална бърза доставка|Заявете днес с изцяло поверителна бърза доставка}! {❤️|💖|❣️} %%page%%";
-		}elseif ($product_name_length <= 106 && $product_name_length >= 81){
-			$formula = "%%title%% в {онлайн магазин|уеб магазина|онлайн секс шоп|е-магазина на} %%sitename%% {100% дискретна доставка|Конфиденциална доставка|Поверителна бърза доставка}! {❤️|💖|❣️} %%page%%";
-		}else{error_log("error determining meta description for Product ID: $product_id and Product name: $product_name");};
+// 	$all_meta = get_post_meta($post->ID, '', false);
+// 	//$current_meta_description = $all_meta['_yoast_wpseo_metadesc'][0];
+// 	if (isset($all_meta['_yoast_wpseo_metadesc'])) {
+// 		$current_meta_description = $all_meta['_yoast_wpseo_metadesc'][0];
+// 	} else {
+// 		$current_meta_description = false;
+// 	}	
+// 	//error_log( print_r($current_meta_description, TRUE) . __FILE__ . " on line " . __LINE__);
+// 	if (!$current_meta_description) {
+// 		$product_name_length = mb_strlen($post->post_title);
+// 		//$new_meta_description = "New meta description for: " . $post->post_title;
+// 		if($product_name_length <= 53 && $product_name_length >= 15){
+// 			$formula = "%%title%% в {онлайн магазин| уеб магазина на|дигитален магазин|е-магазина на} %%sitename%% {Поръчайте със 100% дискретна експресна доставка|Купете с напълно конфиденциална бърза доставка|Заявете днес с изцяло дискретна бърза доставка}. {Границата е само въображението|Няма граници в избора при нас|Не може дори да си представите}! {❤️|💖|❣️} %%page%%";
+// 		}elseif($product_name_length <= 80 && $product_name_length >= 54){
+// 			$formula = "%%title%% в {онлайн магазин| уеб магазина на|дигитален магазин|е-магазина на} %%sitename%% {Поръчайте лесно с 100% дискретна експресна доставка|Купете сега с напълно конфиденциална бърза доставка|Заявете днес с изцяло поверителна бърза доставка}! {❤️|💖|❣️} %%page%%";
+// 		}elseif ($product_name_length <= 106 && $product_name_length >= 81){
+// 			$formula = "%%title%% в {онлайн магазин|уеб магазина|онлайн секс шоп|е-магазина на} %%sitename%% {100% дискретна доставка|Конфиденциална доставка|Поверителна бърза доставка}! {❤️|💖|❣️} %%page%%";
+// 		}else{error_log("error determining meta description for Product ID: $product_id and Product name: $product_name ");};
 		  
-		  $new_meta_description = spintax($formula);
+// 		  $new_meta_description = spintax($formula);
+// 		error_log("product length: $product_name_length for product $product_name.");
+// 		  $result = update_post_meta($post->ID, '_yoast_wpseo_metadesc', $new_meta_description);
 		
-		  $result = update_post_meta($post->ID, '_yoast_wpseo_metadesc', $new_meta_description);
-		
-		if ($result === false) {
-		error_log('Failed to update the meta description. $return is false, see docs. Post ID:'. $post->ID);
-		//error_log( print_r($result, TRUE) );
-		} elseif ($result === true) {
-		error_log('Meta description updated successfully. Post ID'. $post->ID);
-		} else {
-		error_log('New meta ID key created. Meta description created with Post ID:'. $post->ID );
-		}
-	}else{
-		error_log('Meta description already exists. Post ID'. $post->ID);
-	}
-	$check_meta_descr = get_post_meta($post->ID, '_yoast_wpseo_metadesc', false);
+// 		if ($result === false) {
+// 		error_log('Failed to update the meta description. $return is false, see docs. Post ID:'. $post->ID);
+// 		//error_log( print_r($result, TRUE) );
+// 		} elseif ($result === true) {
+// 		error_log('Meta description updated successfully. Post ID'. $post->ID);
+// 		} else {
+// 		error_log('New meta ID key created. Meta description created with Post ID:'. $post->ID );
+// 		}
+// 	}else{
+// 		error_log('Meta description already exists. Post ID'. $post->ID);
+// 	}
+// 	$check_meta_descr = get_post_meta($post->ID, '_yoast_wpseo_metadesc', false);
 	
-}
+// }
 
 
-add_action( 'transition_post_status', 'action_on_publishing_post', 10, 3);
-add_action('my_custom_delayed_action', 'my_custom_delayed_action');
+// add_action( 'transition_post_status', 'action_on_publishing_post', 10, 3);
+// add_action('my_custom_delayed_action', 'my_custom_delayed_action');
 //Обяснение - 1. hook 'transition_post_status' и пуска action_on_publishing_post. Проблем: YoastSEO добавя meta_descr няколко сек. СЛЕД ПУБЛИКУВАНЕ. 2. Забавям функцията за модификация с wp_schedule_single_event() с 5 сек. 3. Чета мета описанието. Ако е ръчно добавено НЕ го пипам. Ако НЕ е ръчно, добавям функция. 4. Променям го с update_post_meta().
-//!Добавя се само след отваряне на линка!!!
 //* Мога да избера вида на POST от $post->post_type == "product"
 
 //Проблем: Пуснали са продукт/ статия etc., изтрили са формулата и сега искат пак да я въведат.
@@ -333,3 +332,32 @@ function restore_default_error_logging() {
 }
 add_action('switch_theme', 'restore_default_error_logging');
 register_deactivation_hook(__FILE__, 'restore_default_error_logging');
+
+
+
+function change_meta_description() {
+	$args = array(
+		'post_type'      => 'product',
+		'posts_per_page' => -1, // Set to -1 to get all posts
+	);
+	
+	$query = new WP_Query($args);
+	
+	if ($query->have_posts()) {
+		$count = 1;
+		while ($query->have_posts()) {
+			
+			$query->the_post();
+	
+			$id = get_the_ID(); // Get the id of the current post
+			error_log("Post ID: $id and count $count"); // Log the id to the PHP error log
+			$count = $count + 1;
+		}
+	}
+
+	wp_reset_postdata(); // Always reset post data after a custom query
+}
+
+
+
+add_action( 'transition_post_status', 'change_meta_description', 10, 3);
